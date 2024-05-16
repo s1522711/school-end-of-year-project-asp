@@ -10,17 +10,25 @@
     <header class="p-3 sticky-top" style="background-color: #111111;">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="./" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <a href="./" class="d-flex align-items-center mb-3 mb-md-0 text-white text-decoration-none">
                     <span class="fs-4">The Nukem Store</span>
                 </a>
 
 
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 mx-auto">
                     <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-                    <li><a href="about/" class="nav-link px-2 text-white">About</a></li>
+                    <li><a href="about/" class="nav-link px-2 text-white" id="aboutBtn" runat="server">About</a></li>
                 </ul>
 
-                <div class="text-end">
+                <!-- these are the buttons that will be displayed when the user is logged in -->
+                <div class="me-2 text-end text-white" id="usernameStrDisplay" runat="server">
+                    <%="Welcome! " + Session["userName"] %>
+                </div>
+                <div class="text-end text-white" runat="server" id="logoutBtnDiv">
+                    <button type="button" id="logoutBtn" onserverclick="logoutBtn_Click" class="btn btn-outline-danger text-white me-2" runat="server">Logout</button>
+                </div>
+                <!-- these are the buttons that will be displayed when the user is not logged in -->
+                <div class="text-end text-white" runat="server" id="loginRegisterBtn">
                     <button type="button" onclick="location.href = './login/';"
                         class="btn btn-outline-primary text-white me-2">
                         Login
@@ -45,8 +53,19 @@
     </div>
 
     <!-- hero end -->
+
+    <div class="container mt-3" runat="server" id="notLoggedinDiv">
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <div class="alert alert-danger alert-trim display-4 text-center">
+                    Error: You are not logged in!<br />Please login to view the products.
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- products -->
-    <div class="container-fluid mt-3">
+    <div class="container-fluid mt-3" runat="server" id="productsDiv">
         <div class="row justify-content-center">
             <div class="col-sm-3 mb-2" style="width: 400px">
                 <div class="card">
@@ -56,7 +75,7 @@
                         <div class="card-text">Price: $897654</div>
 
                     </div>
-                    <button type="button" onclick="location.href='checkout/';"
+                    <button type="button" runat="server" onserverclick="tsarBombaBtn_Click"
                         class="btn btn-primary btn-block col-sm-11 mb-2 mx-auto">
                         Buy
                     </button>
@@ -70,7 +89,7 @@
                         <div class="card-text">Price: $9846498489</div>
 
                     </div>
-                    <button type="button" onclick="toBeAddedAlert()"
+                    <button type="button" runat="server" onserverclick="dukeNukemBtn_Click"
                         class="btn btn-primary btn-block col-sm-11 mb-2 mx-auto">
                         Buy
                     </button>
@@ -84,7 +103,7 @@
                         <div class="card-text">Price: $69,000</div>
 
                     </div>
-                    <button type="button" onclick="toBeAddedAlert()"
+                    <button type="button" runat="server" onserverclick="csBombBtn_Click"
                         class="btn btn-primary btn-block col-sm-11 mb-2 mx-auto">
                         Buy
                     </button>
@@ -98,7 +117,7 @@
                         <div class="card-text">Price: $420,000,000</div>
 
                     </div>
-                    <button type="button" onclick="toBeAddedAlert()"
+                    <button type="button" runat="server" onserverclick="giladDollBtn_Click"
                         class="btn btn-primary btn-block col-sm-11 mb-2 mx-auto">
                         Buy
                     </button>
@@ -114,7 +133,7 @@
                         <div class="card-text">Price: $894</div>
 
                     </div>
-                    <button type="button" onclick="toBeAddedAlert()"
+                    <button type="button" runat="server" onserverclick="breakingServiceBtn_Click"
                         class="btn btn-primary btn-block col-sm-11 mb-2 mx-auto">
                         Buy
                     </button>
@@ -128,7 +147,7 @@
                         <div class="card-text">Price: $84375757</div>
 
                     </div>
-                    <button type="button" onclick="toBeAddedAlert()"
+                    <button type="button" runat="server" onserverclick="tamirGtaBtn_Click"
                         class="btn btn-primary btn-block col-sm-11 mb-2 mx-auto">
                         Buy
                     </button>
@@ -142,7 +161,7 @@
                         <div class="card-text">Price: -$5</div>
 
                     </div>
-                    <button type="button" onclick="toBeAddedAlert()"
+                    <button type="button" runat="server" onserverclick="nickBtn_Click"
                         class="btn btn-primary btn-block col-sm-11 mb-2 mx-auto">
                         Buy
                     </button>
@@ -156,7 +175,7 @@
                         <div class="card-text">Price: $643924</div>
 
                     </div>
-                    <button type="button" onclick="toBeAddedAlert()"
+                    <button type="button" runat="server" onserverclick="littleBoyBtn_Click"
                         class="btn btn-primary btn-block col-sm-11 mb-2 mx-auto">
                         Buy
                     </button>
