@@ -25,7 +25,9 @@
         // Code that runs when a new session is started
         Session["userName"] = "Guest";
         Session["login"] = false;
+        Session["admin"] = false;
         Session["selectedProduct"] = "none";
+        Session["orderId"] = 0;
     }
 
     void Session_End(object sender, EventArgs e)

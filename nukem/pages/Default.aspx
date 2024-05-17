@@ -10,22 +10,36 @@
     <header class="p-3 sticky-top" style="background-color: #111111;">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="./" class="d-flex align-items-center mb-3 mb-md-0 text-white text-decoration-none">
+                <a href="./" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     <span class="fs-4">The Nukem Store</span>
                 </a>
 
 
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 mx-auto">
-                    <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-                    <li><a href="about/" class="nav-link px-2 text-white" id="aboutBtn" runat="server">About</a></li>
+                <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
+                    <li><a href="about/" class="nav-link px-2 link-light" id="aboutBtn" runat="server">About</a></li>
                 </ul>
+
+                <nav class="navbar navbar-expand-lg col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 me-auto">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto" runat="server" id="adminDropdown">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle link-danger " href="./admin" id="navbarDropdown">ADMIN</a>
+                                <div class="dropdown-menu mt-0" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="./admin/users">User List</a>
+                                    <a class="dropdown-item" href="./admin/orders/">Order List</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
 
                 <!-- these are the buttons that will be displayed when the user is logged in -->
                 <div class="me-2 text-end text-white" id="usernameStrDisplay" runat="server">
                     <%="Welcome! " + Session["userName"] %>
                 </div>
                 <div class="text-end text-white" runat="server" id="logoutBtnDiv">
-                    <button type="button" id="logoutBtn" onserverclick="logoutBtn_Click" class="btn btn-outline-danger text-white me-2" runat="server">Logout</button>
+                    <button type="button" id="logoutBtn" onserverclick="logoutBtn_Click" class="btn btn-outline-danger text-white" runat="server">Logout</button>
                 </div>
                 <!-- these are the buttons that will be displayed when the user is not logged in -->
                 <div class="text-end text-white" runat="server" id="loginRegisterBtn">
@@ -58,7 +72,8 @@
         <div class="row justify-content-center">
             <div class="col-9">
                 <div class="alert alert-danger alert-trim display-4 text-center">
-                    Error: You are not logged in!<br />Please login to view the products.
+                    Error: You are not logged in!<br />
+                    Please login to view the products.
                 </div>
             </div>
         </div>
@@ -71,8 +86,8 @@
                 <div class="card">
                     <img src="img/index/tsar-bobma.webp" alt="tsar-bobma" height="210" class=" card-img-top ">
                     <div class="card-body">
-                        <div class="card-title">Tsar Bobma <span class="badge bg-secondary">New!</span></div>
-                        <div class="card-text">Price: $897654</div>
+                        <div class="card-title"><%=GetProductName("TsarBomba") %> <span class="badge bg-secondary">New!</span></div>
+                        <div class="card-text">Price: $<%=GetProductPrice("TsarBomba") %></div>
 
                     </div>
                     <button type="button" runat="server" onserverclick="tsarBombaBtn_Click"
@@ -85,8 +100,8 @@
                 <div class="card">
                     <img src="img/index/duke-nukem.jpg" alt="duke nukem cover" height="210" class=" card-img-top ">
                     <div class="card-body">
-                        <div class="card-title">Duke Nukem <span class="badge bg-primary">Rare!</span></div>
-                        <div class="card-text">Price: $9846498489</div>
+                        <div class="card-title"><%=GetProductName("DukeNukem") %> <span class="badge bg-primary">Rare!</span></div>
+                        <div class="card-text">Price: $<%=GetProductPrice("DukeNukem") %></div>
 
                     </div>
                     <button type="button" runat="server" onserverclick="dukeNukemBtn_Click"
@@ -99,8 +114,8 @@
                 <div class="card">
                     <img src="img/index/cs-bomb.jpeg" alt="tsar-bobma" height="210" class=" card-img-top ">
                     <div class="card-body">
-                        <div class="card-title">Counter-Strike 2 Bomb <span class="badge bg-secondary">New!</span></div>
-                        <div class="card-text">Price: $69,000</div>
+                        <div class="card-title"><%=GetProductName("CS2Bomb") %> <span class="badge bg-secondary">New!</span></div>
+                        <div class="card-text">Price: $<%=GetProductPrice("CS2Bomb") %></div>
 
                     </div>
                     <button type="button" runat="server" onserverclick="csBombBtn_Click"
@@ -113,8 +128,8 @@
                 <div class="card">
                     <img src="img/index/gilad.png" alt="tsar-bobma" height="210" class=" card-img-top ">
                     <div class="card-body">
-                        <div class="card-title">Gilad WobblyHead Doll <span class="badge bg-warning" onclick="location.href='secret/';"><a href="secret/" class=" text-decoration-none text-black">New!</a></span></div>
-                        <div class="card-text">Price: $420,000,000</div>
+                        <div class="card-title"><%=GetProductName("GiladDoll") %> <span class="badge bg-warning" onclick="location.href='secret/';"><a href="secret/" class=" text-decoration-none text-black">New!</a></span></div>
+                        <div class="card-text">Price: $<%=GetProductPrice("GiladDoll") %></div>
 
                     </div>
                     <button type="button" runat="server" onserverclick="giladDollBtn_Click"
@@ -128,9 +143,9 @@
                     <img src="img/index/computer-breaker.jpg" alt="tsar-bobma" height="210" class=" card-img-top ">
                     <div class="card-body">
                         <div class="card-title">
-                            Professional Computer Breaking Service <span class="badge bg-secondary">New!</span>
+                            <%=GetProductName("CBS") %> <span class="badge bg-secondary">New!</span>
                         </div>
-                        <div class="card-text">Price: $894</div>
+                        <div class="card-text">Price: $<%=GetProductPrice("CBS") %></div>
 
                     </div>
                     <button type="button" runat="server" onserverclick="breakingServiceBtn_Click"
@@ -143,8 +158,8 @@
                 <div class="card">
                     <img src="img/index/tamir-missile.jpg" alt="tsar-bobma" height="210" class=" card-img-top ">
                     <div class="card-body">
-                        <div class="card-title">Tamir GtA Missile <span class="badge bg-primary">Missile!</span></div>
-                        <div class="card-text">Price: $84375757</div>
+                        <div class="card-title"><%=GetProductName("TamirGTA") %> <span class="badge bg-primary">Missile!</span></div>
+                        <div class="card-text">Price: $<%=GetProductPrice("TamirGTA") %></div>
 
                     </div>
                     <button type="button" runat="server" onserverclick="tamirGtaBtn_Click"
@@ -157,8 +172,8 @@
                 <div class="card">
                     <img src="img/index/nick.png" alt="tsar-bobma" height="210" class=" card-img-top ">
                     <div class="card-body">
-                        <div class="card-title">Nick for sale <span class="badge bg-warning text-black" onclick="location.href='img/index/secret.jpg';"><a href="img/index/secret.jpg" class=" text-decoration-none text-black">Barely used!</a></span></div>
-                        <div class="card-text">Price: -$5</div>
+                        <div class="card-title"><%=GetProductName("Nick") %> <span class="badge bg-warning text-black" onclick="location.href='img/index/secret.jpg';"><a href="img/index/secret.jpg" class=" text-decoration-none text-black">Barely used!</a></span></div>
+                        <div class="card-text">Price: $<%=GetProductPrice("Nick") %></div>
 
                     </div>
                     <button type="button" runat="server" onserverclick="nickBtn_Click"
@@ -171,8 +186,8 @@
                 <div class="card">
                     <img src="img/index/Little_boy.jpg" alt="tsar-bobma" height="210" class=" card-img-top ">
                     <div class="card-body">
-                        <div class="card-title">Little Boy Bomb <span class="badge bg-primary">Rare!</span></div>
-                        <div class="card-text">Price: $643924</div>
+                        <div class="card-title"><%=GetProductName("LittleBoy") %> <span class="badge bg-primary">Rare!</span></div>
+                        <div class="card-text">Price: $<%=GetProductPrice("LittleBoy") %></div>
 
                     </div>
                     <button type="button" runat="server" onserverclick="littleBoyBtn_Click"

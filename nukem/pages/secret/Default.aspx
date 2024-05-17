@@ -12,21 +12,40 @@
                 </a>
 
 
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="../" class="nav-link px-2 text-white">Home</a></li>
-                    <li><a href="../about/" class="nav-link px-2 text-white">About</a></li>
-                    <li><a href="./" class="nav-link px-2 text-primary">SECRET GILAD PAGE</a></li>
+                <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="../" class="nav-link px-2 link-light">Home</a></li>
+                    <li><a href="../about/" class="nav-link px-2 link-light" id="aboutBtn" runat="server">About</a></li>
+                    <li><a href="./" class="nav-link px-2 link-primary">SECRET GILAD PAGE</a></li>
                 </ul>
 
-                <div class="text-end">
+                <nav class="navbar navbar-expand-sm col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 me-auto">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto" runat="server" id="adminDropdown">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle link-danger " href="../admin" id="navbarDropdown">ADMIN</a>
+                                <div class="dropdown-menu mt-0" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="../admin/users">User List</a>
+                                    <a class="dropdown-item" href="../admin/orders/">Order List</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <!-- these are the buttons that will be displayed when the user is logged in -->
+                <div class="me-2 text-end text-white" id="usernameStrDisplay" runat="server">
+                    <%="Welcome! " + Session["userName"] %>
+                </div>
+                <div class="text-end text-white" runat="server" id="logoutBtnDiv">
+                    <button type="button" id="logoutBtn" onserverclick="logoutBtn_Click" class="btn btn-outline-danger text-white" runat="server">Logout</button>
+                </div>
+                <!-- these are the buttons that will be displayed when the user is not logged in -->
+                <div class="text-end text-white" runat="server" id="loginRegisterBtn">
                     <button type="button" onclick="location.href = '../login/';"
                         class="btn btn-outline-primary text-white me-2">
                         Login
                     </button>
-                    <button type="button" onclick="location.href = '../register/';"
-                        class="btn btn-primary">
-                        Sign-up
-                    </button>
+                    <button type="button" onclick="location.href = '../register/';" class="btn btn-primary">Sign-up</button>
                 </div>
             </div>
         </div>
