@@ -18,7 +18,7 @@
                     <li><a href="../about/" class="nav-link px-2 link-light" id="aboutBtn" runat="server">About</a></li>
                 </ul>
 
-                <nav class="navbar navbar-expand-lg col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 me-auto">
+                <nav class="navbar navbar-expand col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 me-auto">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto" runat="server" id="adminDropdown">
                             <li class="nav-item dropdown">
@@ -63,35 +63,44 @@
         </div>
     </div>
 
-    <!-- products -->
-<div class="container-fluid mt-3" runat="server" id="productsDiv">
-    <div class="row justify-content-center">
-        <div class="col-sm-3 mb-2" style="width: 400px">
-            <div class="card">
-                <div class="card-body">
-                    <div class="card-title">User Count:</div>
-                    <div class="card-text" runat="server" id="userCountDiv"></div>
+    <!-- cards -->
+    <div class="container-fluid mt-3" runat="server" id="productsDiv">
+        <div class="row justify-content-center">
+            <div class="col-sm-3 mb-2" style="width: 400px">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">User Count:</div>
+                        <div class="card-text" runat="server" id="userCountDiv"></div>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-block col-sm-11 mb-2 mx-auto" onclick="location.href = './users/';">
+                        View Users List
+                    </button>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-3 mb-2" style="width: 400px">
-            <div class="card">
-                <div class="card-body">
-                    <div class="card-title">Order Count:</div>
-                    <div class="card-text" runat="server" id="orderCountDiv"></div>
+            <div class="col-sm-3 mb-2" style="width: 400px">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">Order Count:</div>
+                        <div class="card-text" runat="server" id="orderCountDiv"></div>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-block col-sm-11 mb-2 mx-auto" onclick="location.href = './orders/';">
+                        View Orders List
+                    </button>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-3 mb-2" style="width: 400px">
-            <div class="card">
-                <div class="card-body">
-                    <div class="card-title">Product Amount:</div>
-                    <div class="card-text" runat="server" id="productCountDiv"></div>
+            <div class="col-sm-3 mb-2" style="width: 400px">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">Product Amount:</div>
+                        <div class="card-text" runat="server" id="productCountDiv"></div>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-block col-sm-11 mb-2 mx-auto" onclick="location.href = '/';">
+                        View Products List (Home Page)
+                    </button>
                 </div>
             </div>
-        </div>
 
+        </div>
     </div>
-</div>
 </asp:Content>
 

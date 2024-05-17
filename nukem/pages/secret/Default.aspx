@@ -18,7 +18,7 @@
                     <li><a href="./" class="nav-link px-2 link-primary">SECRET GILAD PAGE</a></li>
                 </ul>
 
-                <nav class="navbar navbar-expand-sm col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 me-auto">
+                <nav class="navbar navbar-expand col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 me-auto">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto" runat="server" id="adminDropdown">
                             <li class="nav-item dropdown">
