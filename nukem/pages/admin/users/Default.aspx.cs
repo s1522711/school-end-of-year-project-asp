@@ -48,7 +48,7 @@ public partial class pages_admin_users_Default : System.Web.UI.Page
         logoutBtnDiv.Visible = (bool)Session["login"];
         loginRegisterBtn.Visible = !(bool)Session["login"];
         aboutBtn.Visible = (bool)Session["login"];
-        adminDropdown.Visible = (bool)Session["admin"] && (bool)Session["login"];
+        admin.Visible = (bool)Session["admin"] && (bool)Session["login"];
 
         string path = AppDomain.CurrentDomain.BaseDirectory;
         AppDomain.CurrentDomain.SetData("DataDirectory", path);

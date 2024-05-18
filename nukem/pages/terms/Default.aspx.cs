@@ -4,8 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
 
-public partial class secret_Default : System.Web.UI.Page
+public partial class pages_tos_Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -21,6 +23,6 @@ public partial class secret_Default : System.Web.UI.Page
         Session["login"] = false;
         Session["admin"] = false;
         Session["username"] = "Guest";
-        Response.Redirect("../");
+        Response.Redirect("../../");
     }
 }

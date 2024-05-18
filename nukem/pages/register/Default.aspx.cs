@@ -58,7 +58,7 @@ public partial class register_Default : System.Web.UI.Page
         logoutBtnDiv.Visible = (bool)Session["login"];
         loginRegisterBtn.Visible = !(bool)Session["login"];
         aboutBtn.Visible = (bool)Session["login"];
-        adminDropdown.Visible = (bool)Session["admin"] && (bool)Session["login"];
+        admin.Visible = (bool)Session["admin"] && (bool)Session["login"];
         errorMessage.Visible = false;
 
         if (IsPostBack)
@@ -116,6 +116,26 @@ public partial class register_Default : System.Web.UI.Page
             else if (Request.Form["passwordInput"] != Request.Form["passwordConfirmInput"])
             {
                 errorMessage.InnerText = "Passwords do not match!";
+                errorMessage.Visible = true;
+            }
+            else if (Request.Form["passwordInput"].Contains(" "))
+            {
+                errorMessage.InnerText = "Password cannot contain spaces!";
+                errorMessage.Visible = true;
+            }
+            else if (Request.Form["usernameInput"].Contains(" "))
+            {
+                errorMessage.InnerText = "Username cannot contain spaces!";
+                errorMessage.Visible = true;
+            }
+            else if (Request.Form["emailInput"].Contains(" "))
+            {
+                errorMessage.InnerText = "Email cannot contain spaces!";
+                errorMessage.Visible = true;
+            }
+            else if (Request.Form["termsCheck"] == null)
+            {
+                errorMessage.InnerText = "You must agree to the terms!";
                 errorMessage.Visible = true;
             }
             else

@@ -17,7 +17,7 @@ public partial class _Default : System.Web.UI.Page
         aboutBtn.Visible = (bool)Session["login"];
         productsDiv.Visible = (bool)Session["login"];
         notLoggedinDiv.Visible = !(bool)Session["login"];
-        adminDropdown.Visible = (bool)Session["admin"] && (bool)Session["login"];
+        admin.Visible = (bool)Session["admin"] && (bool)Session["login"];
     }
 
     protected void logoutBtn_Click(object sender, EventArgs e)

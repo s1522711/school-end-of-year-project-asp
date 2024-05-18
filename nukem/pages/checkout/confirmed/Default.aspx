@@ -19,6 +19,7 @@
                     <p class="lead">Your total was: <strong>$264</strong></p>
                 </div>
                 <p class="lead">Your order will arrive in 3-5 business years.</p>
+                <button type="button" onclick="location.href = '/usercp/';" class="btn btn-success">View order in user panel!</button>
                 <button type="button" onclick="location.href = '/';" class="btn btn-primary">Back to the main page!</button>
             </div>
         </main>

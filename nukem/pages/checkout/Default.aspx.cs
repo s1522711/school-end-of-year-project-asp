@@ -12,7 +12,7 @@ public partial class checkout_Default : System.Web.UI.Page
     /*
      * this function finds the user in the database and checks if the password is correct
      * input: username, password, dataset
-     * output: index of the user in the dataset, -1 if not found
+     * output: uid of the user in the dataset, -1 if not found
      */
     protected int FindAndCheckUser(string username, DataTable dt)
     {

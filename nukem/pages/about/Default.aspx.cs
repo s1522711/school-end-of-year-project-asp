@@ -13,7 +13,7 @@ public partial class about_Default : System.Web.UI.Page
         logoutBtnDiv.Visible = (bool)Session["login"];
         loginRegisterBtn.Visible = !(bool)Session["login"];
         aboutBtn.Visible = (bool)Session["login"];
-        adminDropdown.Visible = (bool)Session["admin"] && (bool)Session["login"];
+        admin.Visible = (bool)Session["admin"] && (bool)Session["login"];
         if (!(bool)Session["login"])
         {
             Response.Redirect("../intruder/");

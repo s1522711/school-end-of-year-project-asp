@@ -11,44 +11,33 @@
     <header class="p-3 sticky-top" style="background-color: #111111;">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="../" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <a href="../" class="d-flex align-items-center mb-3 mb-md-0 text-white text-decoration-none">
                     <span class="fs-4">The Nukem Store</span>
                 </a>
 
 
-                <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
+
+                <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0 mx-auto">
                     <li><a href="../" class="nav-link px-2 link-light">Home</a></li>
                     <li><a href="../about/" class="nav-link px-2 link-light" id="aboutBtn" runat="server">About</a></li>
+                    <li><a href="../admin/" class="nav-link px-2 link-danger" id="admin" runat="server">Admin</a></li>
                 </ul>
 
-                <nav class="navbar navbar-expand col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 me-auto">
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto" runat="server" id="adminDropdown">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle link-danger " href="../admin" id="navbarDropdown">ADMIN</a>
-                                <div class="dropdown-menu mt-0" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="../admin/users">User List</a>
-                                    <a class="dropdown-item" href="../admin/orders/">Order List</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
 
                 <!-- these are the buttons that will be displayed when the user is logged in -->
                 <div class="me-2 text-end text-white" id="usernameStrDisplay" runat="server">
-                    <%="Welcome! " + Session["userName"] %>
+                    <a href="../usercp" class="link-success"><%="Welcome! " + Session["userName"] %></a>
                 </div>
                 <div class="text-end text-white" runat="server" id="logoutBtnDiv">
                     <button type="button" id="logoutBtn" onserverclick="logoutBtn_Click" class="btn btn-outline-danger text-white" runat="server">Logout</button>
                 </div>
                 <!-- these are the buttons that will be displayed when the user is not logged in -->
                 <div class="text-end text-white" runat="server" id="loginRegisterBtn">
-                    <button type="button" onclick="location.href = '../login/';"
+                    <button type="button" onclick="location.href = '../login';"
                         class="btn btn-outline-primary text-white me-2">
                         Login
                     </button>
-                    <button type="button" onclick="location.href = '../register/';" class="btn btn-primary">Sign-up</button>
+                    <button type="button" onclick="location.href = './';" class="btn btn-primary">Sign-up</button>
                 </div>
             </div>
         </div>
@@ -65,34 +54,42 @@
                         <h5 class="card-title">Register</h5>
                     </div>
                     <div class="card-body">
-                        <div class="form-row mb-3">
-                            <label for="usernameInput">Username</label>
+                        <div class="form-row form-floating mb-3">
                             <input type="text" class="form-control" id="usernameInput" name="usernameInput" placeholder="E.g. Germani" value="" minlength="5" required>
+                            <label for="usernameInput">Username</label>
                             <div class="invalid-feedback">
                                 Please provide a username.
                             </div>
                         </div>
-                        <div class="form-row mb-3">
+                        <div class="form-row form-floating mb-3">
+                            <input type="email" class="form-control" id="emailInput" name="emailInput" placeholder="john@example.com" value="" required>
                             <label for="emailInput">Email address</label>
-                            <input type="email" class="form-control" id="emailInput" name="emailInput" placeholder="john@example.com" value=""
-                                required>
                             <div class="invalid-feedback">
                                 Please provide a proper email.
                             </div>
                         </div>
                         <!-- password pattern: pattern="[A-Za-z!@#0-9]{8,50}" -->
-                        <div class="mb-3">
+                        <div class="form-row form-floating mb-3">
+                            <input type="password" class="form-control check-validity" title="the password must be alphanumeric and must consist of at least 8 chars" id="passwordInput" name="passwordInput" placeholder="Must be at least 8 characters long!" aria-describedby="passwordHelpBlock" required>
                             <label for="passwordInput" class="form-label">Password</label>
-                            <input type="password" class="form-control check-validity" title="the password must be alphanumeric and must consist of at least 8 chars" id="passwordInput" name="passwordInput"
-                                placeholder="Must be at least 8 characters long!" required>
+                            <div id="passwordHelpBlock" class="form-text">
+                                Your Password must be at least 8 characters long and must contain at least one letter and one number.
+                            </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="form-row form-floating mb-3">
+                            <input type="password" class="form-control" placeholder="Confirm Password" title="the password must be alphanumeric and must consist of at least 8 chars" id="passwordConfirmInput" name="passwordConfirmInput" value="" required>
                             <label for="passwordConfirmInput" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" title="the password must be alphanumeric and must consist of at least 8 chars" id="passwordConfirmInput" name="passwordConfirmInput" value="" required>
                             <div class="invalid-feedback">
                                 Please confirm your password.
                             </div>
                         </div>
+                        <div class="form-row form-check mb-3">
+                            <input class="form-check-input" type="checkbox" value="" id="termsCheck" name="termsCheck">
+                            <label class="form-check-label" for="termsCheck">
+                                I agree to the <a href="../terms/" target="_blank">terms and conditions</a>
+                            </label>
+                        </div>
+
                         <button type="submit" value="submit"
                             class="btn btn-primary btn-block col-sm-12 mb-2 text-center">
                             Submit
