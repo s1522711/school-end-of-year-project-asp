@@ -49,7 +49,7 @@
         <div class="row justify-content-center">
             <div class="col-7">
                 <p class="display-1 text-center">Your Profile</p>
-                <h3 class="text-center">MAIN PAGE</h3>
+                <!-- <h3 class="text-center">MAIN PAGE</h3> -->
             </div>
 
         </div>
