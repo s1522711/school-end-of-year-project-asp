@@ -16,7 +16,7 @@
 
                 <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0 mx-auto">
                     <li><a href="../" class="nav-link px-2 link-light">Home</a></li>
-                    <li><a href="./" class="nav-link px-2 link-light" id="aboutBtn" runat="server">About</a></li>
+                    <li><a href="./" class="nav-link px-2 link-secondary" id="aboutBtn" runat="server">About</a></li>
                     <li><a href="../admin/" class="nav-link px-2 link-danger" id="admin" runat="server">Admin</a></li>
                 </ul>
 
